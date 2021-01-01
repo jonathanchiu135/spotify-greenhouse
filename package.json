@@ -1,6 +1,9 @@
 {
   "name": "spotify-greenhouse",
   "version": "1.0.0",
+  "engines": {
+    "node": "15.5.0"
+  },
   "description": "",
   "main": "app.js",
   "scripts": {
