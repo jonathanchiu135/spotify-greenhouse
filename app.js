@@ -8,7 +8,7 @@ const defaultRoutes = require('./routes/defaultRoutes')
 
 var client_id = process.env.CLIENT_ID;
 var client_secret = process.env.CLIENT_SECRET;
-var redirect_uri = 'http://localhost:5000/callback'; 
+var redirect_uri = 'https://spotify-greenhouse.herokuapp.com/callback'; 
 
 /*Random String Generator: has length "length" */
 var generateRandomString = function(length) {
