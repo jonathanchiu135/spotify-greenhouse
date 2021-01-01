@@ -10,6 +10,14 @@
     height: 70px;
 }
 
+.flower-title {
+    border: solid;
+    margin: 10px;
+    background-color: rgb(96, 177, 96);
+    width: 1400px;
+    height: 70px;
+}
+
 .website-title {
     position: relative;
     color: black;
