@@ -1,0 +1,82 @@
+<html lang="en">
+<%- include('./partials/header.ejs')%>
+<body>
+    <div class="title"> 
+        <h1 class="website-title"> Spotify Greenhouse </h1>
+    </div>
+    <div class="menu-content">
+        <p id="intro-label">
+            Generate a greenhouse using your most-listened-to tracks on Spotify!
+        </p>
+
+        <div class="time-span-links">
+            <div id="short-term">
+                <a href="/greenhouse-onemonth" id="short-term-link">
+                    <img id="bag-closed-short" src="bag-closed.png">
+                    <img id="bag-open-short" src="bag-open.png">
+                </a>
+                <p class="time-label"> 
+                    LAST MONTH 
+                </p>
+            </div>
+            <div id="medium-term">
+                <a href="/greenhouse-sixmonths" id="medium-term-link">
+                    <img id="bag-closed-medium" src="bag-closed.png">
+                    <img id="bag-open-medium" src="bag-open.png">
+                </a>
+                <p class="time-label"> 
+                    LAST 6 MONTHS 
+                </p>
+            </div>
+            <div id="long-term">
+                <a href="/greenhouse-alltime"  id="long-term">
+                    <img id="bag-closed-long" src="bag-closed.png">
+                    <img id="bag-open-long" src="bag-open.png">
+                </a>
+                <p class="time-label"> 
+                    ALL TIME 
+                </p>
+            </div>
+        </div>
+        
+        <div id="hint">
+            <p>Count the petals on the flowers!</p>
+            <img id="string-of-flowers" src="string-of-flowers.png">
+        </div>
+
+    </div>
+
+    <br><br>
+
+    <script>
+        //since it's the first time visiting HTML page after API call, store in session storage
+        if (typeof(Storage) !== "undefined") {
+            if (sessionStorage.bodyStorage) {
+                //if it's aready defined, do nothing
+                console.log("already defined");
+            } else {
+                //body 1
+                <% var bodyVariable1 = JSON.stringify(bodyInput1); %>
+                var getBody1 = <%- bodyVariable1 %>;
+                var bodyString1 = JSON.stringify(getBody1);
+                sessionStorage.bodyStorage1 =  bodyString1;
+
+                //body 2
+                <% var bodyVariable2 = JSON.stringify(bodyInput2); %>
+                var getBody2 = <%- bodyVariable2 %>;
+                var bodyString2 = JSON.stringify(getBody2);
+                sessionStorage.bodyStorage2 =  bodyString2;
+
+                //body 3
+                <% var bodyVariable3 = JSON.stringify(bodyInput3); %>
+                var getBody3 = <%- bodyVariable3 %>;
+                var bodyString3 = JSON.stringify(getBody3);
+                sessionStorage.bodyStorage3 =  bodyString3;
+            }
+        } else {
+            console.log("no storage");
+        }
+    </script>
+
+</body>
+</html>

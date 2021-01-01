@@ -1,0 +1,354 @@
+<html lang="en">
+<%- include('./partials/header.ejs')%>
+<body>  
+    <div class="title"> 
+        <h1 class="website-title"> Spotify Greenhouse </h1>
+    </div>
+
+    <div id="menu-button-wrapper">
+        <a href="/menu" id="menu-link">
+            <img id="menu-button" src="menu-button.png">
+            <img id="menu-button-hover" src="menu-button-hover.png">
+        </a>
+    </div>
+
+    <div class="greenhouse">
+        <div class="songflower-sunflower"> 
+            <img id="sunflower-petals">
+            <img id="sunflower-ring-1">
+            <img id="sunflower-ring-2">
+            <img id="sunflower-ring-3">
+            <img id="sunflower-ring-4">
+            <img id="sunflower-ring-5">
+            <img id="sunflower-ring-6">
+            <img id="sunflower-ring-7">
+        </div>
+        <div class="sunflower-background"> 
+            <img id="sunflower-minute-1">
+            <img id="sunflower-minute-2">
+            <img id="sunflower-minute-3">
+            <img id="sunflower-minute-4">
+            <img id="sunflower-minute-5">
+            <img id="sunflower-stem" src="sunflower-stem.png">
+        </div>
+        <div class="sunflower-label"> 
+            <p id="sunflower-song-name"></p>
+            <p id="sunflower-artists-names"></p>
+            <p id="sunflower-time"></p>
+        </div>
+
+        <div class="songflower-redflower"> 
+            <img id="redflower-petals">
+            <img id="redflower-ring-1">
+            <img id="redflower-ring-2">
+            <img id="redflower-ring-3">
+            <img id="redflower-ring-4">
+            <img id="redflower-ring-5">
+            <img id="redflower-ring-6">
+            <img id="redflower-ring-7">
+        </div>
+        <div class="redflower-background"> 
+            <img id="redflower-minute-1">
+            <img id="redflower-minute-2">
+            <img id="redflower-minute-3">
+            <img id="redflower-minute-4">
+            <img id="redflower-minute-5">
+            <img id="redflower-bucket" src="redflower-bucket.png">
+        </div>
+        <div class="redflower-label"> 
+            <p id="redflower-song-name"></p>
+            <p id="redflower-artists-names"></p>
+            <p id="redflower-time"></p>
+        </div>
+
+        <div class="songflower-purpleflower"> 
+            <img id="purpleflower-petals">
+            <img id="purpleflower-ring-1">
+            <img id="purpleflower-ring-2">
+            <img id="purpleflower-ring-3">
+            <img id="purpleflower-ring-4">
+            <img id="purpleflower-ring-5">
+            <img id="purpleflower-ring-6">
+            <img id="purpleflower-ring-7">
+        </div>
+        <div class="purpleflower-background"> 
+            <img id="purpleflower-minute-1">
+            <img id="purpleflower-minute-2">
+            <img id="purpleflower-minute-3">
+            <img id="purpleflower-minute-4">
+            <img id="purpleflower-minute-5">
+            <img id="purpleflower-pot" src="purpleflower-pot.png">
+        </div>
+        <div class="purpleflower-label"> 
+            <p id="purpleflower-song-name"></p>
+            <p id="purpleflower-artists-names"></p>
+            <p id="purpleflower-time"></p>
+        </div>
+
+        <img id="entire-greenhouse-background" src="entire-greenhouse-background.png">
+
+        <script>
+
+            var bodyObject = JSON.parse(sessionStorage.bodyStorage3);
+        
+            /* -------------------------------------- */
+            /* ---------SUNFLOWER SCRIPT------------- */
+            /* -------------------------------------- */
+            const sunflower_milliseconds = bodyObject.items[0].duration_ms;
+            const sunflower_seconds = Math.floor(sunflower_milliseconds / 1000) % 60;
+            const sunflower_leftover = sunflower_seconds % 8;
+            const sunflower_minutes = Math.floor(Math.floor(sunflower_milliseconds / 1000) / 60);
+        
+            var sunflower_rings = 0;
+            var sunflower_petals = 0;
+
+            if (sunflower_seconds <= 3) {
+                sunflower_rings = 0;
+                sunflower_petals = 3;
+            } else if (sunflower_seconds <= 7) {
+                //4 <= seconds <= 7
+                sunflower_rings = 0;
+                sunflower_petals = sunflower_seconds;
+            } else {
+                switch (sunflower_leftover) {
+                    case 0:
+                    case 1:
+                    case 2:
+                        sunflower_rings = Math.floor(sunflower_seconds / 8) - 1;
+                        sunflower_petals = sunflower_leftover + 8;
+                        break;
+                    case 3:
+                    case 4:
+                    case 5:
+                    case 6:
+                    case 7:
+                        sunflower_rings = Math.floor(sunflower_seconds/8);
+                        sunflower_petals = sunflower_leftover;
+                        break;
+                }
+            }
+
+            document.getElementById("sunflower-song-name").innerHTML = "1. " + bodyObject.items[0].name;
+            var sunflower_artists_string = "";
+            bodyObject.items[0].artists.forEach(function(item, index) {
+                sunflower_artists_string = sunflower_artists_string + item.name + ", ";
+            })
+            sunflower_artists_string = sunflower_artists_string.substr(0, sunflower_artists_string.length - 2);
+            document.getElementById("sunflower-artists-names").innerHTML = sunflower_artists_string;
+            if (sunflower_seconds <= 9) {
+                document.getElementById("sunflower-time").innerHTML = sunflower_minutes.toString() + ":0" + sunflower_seconds.toString();
+            } else {
+                document.getElementById("sunflower-time").innerHTML = sunflower_minutes.toString() + ":" + sunflower_seconds.toString();
+            }
+            
+            var sunflower_petal_png = "sunflower-" + sunflower_petals.toString() + "-petals.png";
+            document.getElementById("sunflower-petals").src = sunflower_petal_png;
+            if (sunflower_rings != 0) {
+                var sunflower_rings_png = "sunflower-ring-" + sunflower_rings.toString() + ".png";
+                var sunflower_rings_id = "sunflower-ring-" +  sunflower_rings.toString();
+                document.getElementById(sunflower_rings_id).src = sunflower_rings_png;
+            } 
+            var i;
+            for (i = 1; i <= 7; i++) {
+                if (i != sunflower_rings) {
+                    var sunflower_rings_to_remove_id = "sunflower-ring-" +  i.toString();
+                    var elem = document.getElementById(sunflower_rings_to_remove_id);
+                    elem.parentNode.removeChild(elem);
+                }
+            }
+            if (sunflower_minutes <= 5) {
+                var k;
+                for (k = 1; k <= sunflower_minutes; k++) {
+                    var sunflower_minute_flower_id = "sunflower-minute-" +  k.toString();
+                    document.getElementById(sunflower_minute_flower_id).src = "sunflower-minute.png";
+                }
+                var j;
+                for (j = sunflower_minutes + 1; j <= 5; j++) {
+                    var sunflower_minute_flower_id_remove = "sunflower-minute-" +  j.toString();
+                    var elem = document.getElementById(sunflower_minute_flower_id_remove);
+                    elem.parentNode.removeChild(elem);
+                }
+            } else {
+                var k;
+                for (k = 1; k <= 5; k++) {
+                    var sunflower_minute_flower_id = "sunflower-minute-" +  k.toString();
+                    document.getElementById(sunflower_minute_flower_id).src = "sunflower-minute.png";
+                }
+            }
+
+            /* -------------------------------------- */
+            /* ---------REDFLOWER SCRIPT------------- */
+            /* -------------------------------------- */
+            const redflower_milliseconds = bodyObject.items[1].duration_ms;
+            const redflower_seconds = Math.floor(redflower_milliseconds / 1000) % 60;
+            const redflower_leftover = redflower_seconds % 8;
+            const redflower_minutes = Math.floor(Math.floor(redflower_milliseconds / 1000) / 60);
+
+            var redflower_rings = 0;
+            var redflower_petals = 0;
+
+            if (redflower_seconds <= 3) {
+                redflower_rings = 0;
+                redflower_petals = 3;
+            } else if (redflower_seconds <= 7) {
+                //4 <= seconds <= 7
+                redflower_rings = 0;
+                redflower_petals = redflower_seconds;
+            } else {
+                switch (redflower_leftover) {
+                    case 0:
+                    case 1:
+                    case 2:
+                        redflower_rings = Math.floor(redflower_seconds / 8) - 1;
+                        redflower_petals = redflower_leftover + 8;
+                        break;
+                    case 3:
+                    case 4:
+                    case 5:
+                    case 6:
+                    case 7:
+                        redflower_rings = Math.floor(redflower_seconds/8);
+                        redflower_petals = redflower_leftover;
+                        break;
+                }
+            }
+
+            document.getElementById("redflower-song-name").innerHTML = "2. " + bodyObject.items[1].name;
+            var redflower_artists_string = "";
+            bodyObject.items[1].artists.forEach(function(item, index) {
+                redflower_artists_string = redflower_artists_string + item.name + ", ";
+            })
+            redflower_artists_string = redflower_artists_string.substr(0, redflower_artists_string.length - 2);
+            document.getElementById("redflower-artists-names").innerHTML = redflower_artists_string;
+            if (redflower_seconds <= 9) {
+                document.getElementById("redflower-time").innerHTML = redflower_minutes.toString() + ":0" + redflower_seconds.toString();
+            } else {
+                document.getElementById("redflower-time").innerHTML = redflower_minutes.toString() + ":" + redflower_seconds.toString();
+            }
+
+            var redflower_petal_png = "redflower-" + redflower_petals.toString() + "-petals.png";
+            document.getElementById("redflower-petals").src = redflower_petal_png;
+            if (redflower_rings != 0) {
+                var redflower_rings_png = "redflower-ring-" + redflower_rings.toString() + ".png";
+                var redflower_rings_id = "redflower-ring-" +  redflower_rings.toString();
+                document.getElementById(redflower_rings_id).src = redflower_rings_png;
+            } 
+            var i;
+            for (i = 1; i <= 7; i++) {
+                if (i != redflower_rings) {
+                    var redflower_rings_to_remove_id = "redflower-ring-" +  i.toString();
+                    var elem = document.getElementById(redflower_rings_to_remove_id);
+                    elem.parentNode.removeChild(elem);
+                }
+            }
+            if (redflower_minutes <= 5) {
+                var k;
+                for (k = 1; k <= redflower_minutes; k++) {
+                    var redflower_minute_flower_id = "redflower-minute-" +  k.toString();
+                    document.getElementById(redflower_minute_flower_id).src = "redflower-minute.png";
+                }
+                var j;
+                for (j = redflower_minutes + 1; j <= 5; j++) {
+                    var redflower_minute_flower_id_remove = "redflower-minute-" +  j.toString();
+                    var elem = document.getElementById(redflower_minute_flower_id_remove);
+                    elem.parentNode.removeChild(elem);
+                }
+            } else {
+                var k;
+                for (k = 1; k <= 5; k++) {
+                    var redflower_minute_flower_id = "redflower-minute-" +  k.toString();
+                    document.getElementById(redflower_minute_flower_id).src = "redflower-minute.png";
+                }
+            }
+
+            /* -------------------------------------- */
+            /* --------PURPLEFLOWER SCRIPT----------- */
+            /* -------------------------------------- */
+            const purpleflower_milliseconds = bodyObject.items[2].duration_ms;
+            const purpleflower_seconds = Math.floor(purpleflower_milliseconds / 1000) % 60;
+            const purpleflower_leftover = purpleflower_seconds % 8;
+            const purpleflower_minutes = Math.floor(Math.floor(purpleflower_milliseconds / 1000) / 60);
+
+            var purpleflower_rings = 0;
+            var purpleflower_petals = 0;
+
+            if (purpleflower_seconds <= 3) {
+                purpleflower_rings = 0;
+                purpleflower_petals = 3;
+            } else if (purpleflower_seconds <= 7) {
+                //4 <= seconds <= 7
+                purpleflower_rings = 0;
+                purpleflower_petals = purpleflower_seconds;
+            } else {
+                switch (purpleflower_leftover) {
+                    case 0:
+                    case 1:
+                    case 2:
+                        purpleflower_rings = Math.floor(purpleflower_seconds / 8) - 1;
+                        purpleflower_petals = purpleflower_leftover + 8;
+                        break;
+                    case 3:
+                    case 4:
+                    case 5:
+                    case 6:
+                    case 7:
+                        purpleflower_rings = Math.floor(purpleflower_seconds/8);
+                        purpleflower_petals = purpleflower_leftover;
+                        break;
+                }
+            }
+
+            document.getElementById("purpleflower-song-name").innerHTML = "3. " + bodyObject.items[2].name;
+            var purpleflower_artists_string = "";
+            bodyObject.items[2].artists.forEach(function(item, index) {
+                purpleflower_artists_string = purpleflower_artists_string + item.name + ", ";
+            })
+            purpleflower_artists_string = purpleflower_artists_string.substr(0, purpleflower_artists_string.length - 2);
+            document.getElementById("purpleflower-artists-names").innerHTML = purpleflower_artists_string;
+            if (purpleflower_seconds <= 9) {
+                document.getElementById("purpleflower-time").innerHTML = purpleflower_minutes.toString() + ":0" + purpleflower_seconds.toString();
+            } else {
+                document.getElementById("purpleflower-time").innerHTML = purpleflower_minutes.toString() + ":" + purpleflower_seconds.toString();
+            }
+            
+            var purpleflower_petal_png = "purpleflower-" + purpleflower_petals.toString() + "-petals.png";
+            document.getElementById("purpleflower-petals").src = purpleflower_petal_png;
+            if (purpleflower_rings != 0) {
+                var purpleflower_rings_png = "purpleflower-ring-" + purpleflower_rings.toString() + ".png";
+                var purpleflower_rings_id = "purpleflower-ring-" +  purpleflower_rings.toString();
+                document.getElementById(purpleflower_rings_id).src = purpleflower_rings_png;
+            } 
+            var i;
+            for (i = 1; i <= 7; i++) {
+                if (i != purpleflower_rings) {
+                    var purpleflower_rings_to_remove_id = "purpleflower-ring-" +  i.toString();
+                    var elem = document.getElementById(purpleflower_rings_to_remove_id);
+                    elem.parentNode.removeChild(elem);
+                }
+            }
+            if (purpleflower_minutes <= 5) {
+                var k;
+                for (k = 1; k <= purpleflower_minutes; k++) {
+                    var purpleflower_minute_flower_id = "purpleflower-minute-" +  k.toString();
+                    document.getElementById(purpleflower_minute_flower_id).src = "purpleflower-minute.png";
+                }
+                var j;
+                for (j = purpleflower_minutes + 1; j <= 5; j++) {
+                    var purpleflower_minute_flower_id_remove = "purpleflower-minute-" +  j.toString();
+                    var elem = document.getElementById(purpleflower_minute_flower_id_remove);
+                    elem.parentNode.removeChild(elem);
+                }
+            } else {
+                var k;
+                for (k = 1; k <= 5; k++) {
+                    var purpleflower_minute_flower_id = "purpleflower-minute-" +  k.toString();
+                    document.getElementById(purpleflower_minute_flower_id).src = "purpleflower-minute.png";
+                }
+            }
+        </script>  
+
+        <br><br>
+    </div>
+    <br><br>
+</body>
+</html>

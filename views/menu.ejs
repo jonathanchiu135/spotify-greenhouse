@@ -1,0 +1,50 @@
+<html lang="en">
+<%- include('./partials/header.ejs')%>
+<body>
+    <div class="title"> 
+        <h1 class="website-title"> Spotify Greenhouse </h1>
+    </div>
+    <div class="menu-content">
+        <p id="intro-label">
+            Generate a greenhouse using your most-listened-to tracks on Spotify!
+        </p>
+
+        <div class="time-span-links">
+            <div id="short-term">
+                <a href="/greenhouse-onemonth" id="short-term-link">
+                    <img id="bag-closed-short" src="bag-closed.png">
+                    <img id="bag-open-short" src="bag-open.png">
+                </a>
+                <p class="time-label"> 
+                    LAST MONTH 
+                </p>
+            </div>
+            <div id="medium-term">
+                <a href="/greenhouse-sixmonths" id="medium-term-link">
+                    <img id="bag-closed-medium" src="bag-closed.png">
+                    <img id="bag-open-medium" src="bag-open.png">
+                </a>
+                <p class="time-label"> 
+                    LAST 6 MONTHS 
+                </p>
+            </div>
+            <div id="long-term">
+                <a href="/greenhouse-alltime"  id="long-term">
+                    <img id="bag-closed-long" src="bag-closed.png">
+                    <img id="bag-open-long" src="bag-open.png">
+                </a>
+                <p class="time-label"> 
+                    ALL TIME 
+                </p>
+            </div>
+        </div>
+        
+        <div id="hint">
+            <p>Count the petals on the flowers!</p>
+            <img id="string-of-flowers" src="string-of-flowers.png">
+        </div>
+    </div>
+    <br><br>
+</body>
+</html>
+
