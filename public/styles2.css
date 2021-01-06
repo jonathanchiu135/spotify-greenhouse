@@ -1,42 +1,110 @@
 /*----------------------------------*/
 /****** TITLE AND MISCELLANEOUS *****/
 /*----------------------------------*/
-.message {
-    margin: 30px;
+
+.title {
+    border: solid;
+    margin: 10px;
+    background-color: rgb(96, 177, 96);
+    /* min-width: 1100px; */
+    height: 70px;
 }
+
+.flower-title {
+    border: solid;
+    margin: 10px;
+    background-color: rgb(96, 177, 96);
+    width: 1400px;
+    height: 70px;
+}
+
+.website-title {
+    position: relative;
+    color: black;
+    font-family: FreeMono, monospace; 
+    font-size: 35;
+    left: 50px;
+    top: -10px;
+}
+
 .content {
     border: solid;
     margin: 10px;
     background-color: lightblue;
-    width: auto;
+    min-width: 1100px;
+    min-height: 600px;
+    height: 700px;
 }
+
+.message {
+    margin: 30px;
+}
+
+.greenhouse {
+    border: solid;
+    margin: 10px;
+    background-color: lightblue;
+    min-width: 1400px;
+    min-height: 600px;
+    width: 1400px;
+    height: 600px;
+}
+
+.menu-content{
+    border: solid;
+    margin: 10px;
+    background-color: lightblue;
+    min-width: 1100px;
+    min-height: 600px;
+}
+
+.sunflower {
+    height: 300px;
+    width: 300px;
+}
+
+#entire-greenhouse-background {
+    position: relative;
+    top: -1835;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+/*----------------------------------*/
+/******* TITLE PAGE POSITIONS *******/
+/*----------------------------------*/
+
 .title-page-title {
     position: relative;
-    top: 14%;
-    width: auto;
+    top: 100px;
+    min-width: 1100px;
     display: block;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
 }
+
 .title-text {
     color: black;
     font-family: FreeMono, monospace; 
-    /* font-size: 50; */
-    font-size: 3.5vw;
+    font-size: 50;
 }
+
 #title-flower {
     position: relative;
     margin-left: auto;
     margin-right: auto;
     display: block;
-    top: 13%;
-    left: -2.5%;
-    width: 5%;
-    height: 10%;
+    top: 95px;
+    left: -30px;
+    width: 75px;
+    height: 75px;
 }
 #login-wrapper {
     position: relative;
-    width: 25%;
-    height: 10%;
+    width: 350px;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -44,18 +112,16 @@
 #login-button {
     position: absolute;
     display: block;
-    width: 100%;
-    height: auto;
-    top: 200%;
-    left: -8%;
+    width: 350px;
+    top: 125px;
+    left: -30px;
 }
 #login-button-hover {
     position: absolute;
     display: none;
-    width: 100%;
-    height: auto;
-    top: 200%;
-    left: -8%;
+    width: 350px;
+    top: 125px;
+    left: -30px;
 }
 #login-button-link:hover #login-button-hover {
     display: inline;
@@ -66,67 +132,61 @@
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    top: 40%;
-    left: -3%;
+    top: 400px;
+    left: -40px;
     line-height: 0.60;
-    font-size: 1vw;   
 }
 
 /*----------------------------------*/
 /**** MENU OPTIONS AND POSITIONS ****/
 /*----------------------------------*/
-.menu-content{
-    border: solid;
-    margin: 10px;
-    background-color: lightblue;
-    width: auto;
-}
+
 #intro-label {
-    position: relative;     
-    width: 100%;
-    height: 5%;
-    top: 9.6%;
+    position: absolute;     
+    top: 145px;
     margin: auto;
+    width: 100%;
+    min-width: 1000px;
     text-align: center;
     font-family: "Courier New", "Lucida Console", monospace;
     font-weight: bold;
-    font-size: 1.8vw;
+    font-size: 25;
 }
 .time-span-links {
     position: relative;
-    top: 16%;
+    top: 100px;
     display: flex;
-    width: 57.1%;
+    width: 800px;
     margin: auto;
 }
 .time-label {
-    position: relative;
-    top: 1150%;
-    left: -14%;
+    position: absolute;
+    top: 255px;
+    width: 200px;
     margin: auto;
     text-align: center;
     font-family: "Courier New", "Lucida Console", monospace;
     font-weight: bold;
-    font-size: 1.3vw;
+    font-size: 20;
 }
 #hint {
     position: absolute;     
-    top: 1500%;
+    top: 525px;
     margin: auto;
     width: 100%;
-    left: -2%;
+    min-width: 1000px;
+    left: -20px;
     text-align: center;
     font-family: "Courier New", "Lucida Console", monospace;
     font-weight: bold;
-    /* font-size: 21; */
-    font-size: 1.4vw;
+    font-size: 22;
 }
 #string-of-flowers {
     position: absolute;     
     margin: auto;   
-    width: 12%;
-    left: 43%;
-    top: 90%;
+    width: 160px;
+    left: 44%;
+    top: 70px;
 }
 
 
@@ -137,14 +197,14 @@
 }
 #bag-closed-short {
     position: absolute;
-    height: 1100%;
-    width: 70%; 
+    height: 245px;
+    width: 200px; 
 }
 #bag-open-short {
     display: none;
     position: absolute;
-    height: 1100%;
-    width: 70%;  
+    height: 245px;
+    width: 200px;   
 }
 #short-term:hover #bag-open-short {
     display: inline;
@@ -157,14 +217,14 @@
 }
 #bag-closed-medium {
     position: absolute;
-    height: 1100%;
-    width: 70%;  
+    height: 245px;
+    width: 200px; 
 }
 #bag-open-medium {
     display: none;
     position: absolute;
-    height: 1100%;
-    width: 70%;   
+    height: 245px;
+    width: 200px;   
 }
 #medium-term:hover #bag-open-medium {
     display: inline;
@@ -177,57 +237,19 @@
 }
 #bag-closed-long {
     position: absolute;
-    height: 1100%;
-    width: 70%;  
+    height: 245px;
+    width: 200px; 
 }
 #bag-open-long {
     display: none;
     position: absolute;
-    height: 1100%;
-    width: 70%;   
+    height: 245px;
+    width: 200px;   
 }
 #long-term:hover #bag-open-long {
     display: inline;
 }
 
-/*----------------------------------*/
-/******* GREENHOUSE GRAPHICS ********/
-/*----------------------------------*/
-
-.greenhouse {
-    border: solid;
-    margin: 10px;
-    background-color: lightblue;
-    width: auto;
-    /* padding-top: 42%; */
-    /* width: 1400px; */
-    /* height: 600px; */
-}
-
-#entire-greenhouse-background {
-    position: relative;
-    top: -305.7%;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-}
-
-.flower-title {
-    border: solid;
-    margin: 10px;
-    background-color: rgb(96, 177, 96);
-    width: auto;
-    /* height: 70px; */
-}
-.flower-website-title {
-    position: relative;
-    color: black;
-    font-family: FreeMono, monospace; 
-    font-size: 2.2vw;
-    left: 4.5%;
-    top: -12%;
-}
 
 /*----------------------------------*/
 /******* BACK TO MENU BUTTON ********/
@@ -235,26 +257,27 @@
 
 #menu-button-wrapper {
     position: relative;
-    width: 4.28%;
-    left: 2.14%;
-    top: -401%;
+    width: 100px;
+    left: 30px;
+    top: 15px;
     display: block;
 }
 #menu-button {
     position: absolute;
     display: block;
-    width: 100%; 
+    width: 60px; 
     z-index: 7;
 }
 #menu-button-hover {
     position: absolute;
     display: none;
-    width: 100%;  
+    width: 60px;  
     z-index: 7;
 }
 #menu-link:hover #menu-button-hover{
     display: inline;
 }
+
 
 /*----------------------------------*/
 /*** FLOWER GRAPHICS AND POSITIONS ***/
@@ -263,10 +286,10 @@
 /*sunflower with variable number of rings*/
 .songflower-sunflower{
     position: relative;
-    height: 16.67%;
-    width: 7.14%;
-    top: 14.5%;
-    left: 53%;
+    height: 100px;
+    width: 100px;
+    top: 85px;
+    left: 743px;
 }
 .songflower-sunflower #sunflower-petals {
     position: absolute; 
@@ -337,49 +360,49 @@
 /* extra sunflowers */
 .sunflower-background {
     position: relative;
-    height: 83.333%;
-    width: 35.7%;
-    left: 32.14%;
+    height: 500px;
+    width: 500px;
+    left: 450px;
 }
 .sunflower-background #sunflower-minute-1 {
     position: absolute;
-    height: 20%;
-    width: 20%;
+    height: 100px;
+    width: 100px;
     z-index: 3;
-    top: 15%;
-    left: 40%;
+    top: 75px;
+    left: 200px;
 }
 .sunflower-background #sunflower-minute-2 {
     position: absolute;
-    height: 20%;
-    width: 20%;
+    height: 100px;
+    width: 100px;
     z-index: 3;
-    top: 20%;
-    left: 70%;
+    top: 100px;
+    left: 350px;
 }
 .sunflower-background #sunflower-minute-3 {
     position: absolute;
-    height: 20%;
-    width: 20%;
+    height: 100px;
+    width: 100px;
     z-index: 3;
-    top: 40%;
-    left: 45%;
+    top: 200px;
+    left: 240px;
 }
 .sunflower-background #sunflower-minute-4 {
     position: absolute;
-    height: 20%;
-    width: 20%;
+    height: 100px;
+    width: 100px;
     z-index: 3;
-    top: 50%;
-    left: 70%;
+    top: 250px;
+    left: 350px;
 }
 .sunflower-background #sunflower-minute-5 {
     position: absolute;
-    height: 20%;
-    width: 20%;
+    height: 100px;
+    width: 100px;
     z-index: 3;
-    top: 50%;
-    left: 25%;
+    top: 250px;
+    left: 125px;
 }
 .sunflower-background #sunflower-stem {
     position: relative;
@@ -389,11 +412,11 @@
 }
 .sunflower-label {
     position: relative;
-    width: 17.85%;
-    height: 11.16%;
-    left: 39.3%;
-    top: -89.16%;
+    left: 550px;
+    top: -535px;
+    width: 250px;
     word-wrap: break-word;
+    max-height: 67px;
     line-height: 50%;
     z-index: 5;
 }
@@ -401,24 +424,21 @@
     font-family: "Lucida Console", "Courier New", monospace;
     font-weight: bold;
     text-align: center;
-    /* font-size: large; */
-    font-size: 1.2vw;
+    font-size: large;
     line-height: 100%;
     z-index: 5;
 }
 .sunflower-label #sunflower-artists-names {
     text-align: center;
     font-family: "Lucida Console", "Courier New", monospace;
-    /* font-size: 80%; */
-    font-size: .86vw;
+    font-size: 80%;
     line-height: 100%;
     z-index: 5;
 }
 .sunflower-label #sunflower-time {
     text-align: center;
     font-family: "Lucida Console", "Courier New", monospace;
-    /* font-size: 80%; */
-    font-size: .86vw;
+    font-size: 80%;
     z-index: 5;
 }
 
@@ -428,10 +448,10 @@
 /*redflower with variable number of rings*/
 .songflower-redflower{
     position: relative;
-    height: 15%;
-    width: 6.4%;
-    top: -80.8333%;
-    left: 14.5%;
+    height: 90px;
+    width: 90px;
+    top: -485px;
+    left: 210px;
 }
 .songflower-redflower #redflower-petals {
     position: absolute; 
@@ -502,51 +522,51 @@
 /* extra redflowers */
 .redflower-background {
     position: relative;
-    height: 50%;
-    width: 28.57%;
-    left: 0%;
-    top: -129.5%;
+    height: 300px;
+    width: 400px;
+    left: 0px;
+    top: -780px;
 }
 .redflower-background #redflower-minute-1 {
     position: absolute;
-    height: 25%;
-    width: 18.75%;
+    height: 75px;
+    width: 75px;
     z-index: 3;
-    top: 76.66%;
-    left: 30%;
+    top: 230px;
+    left: 120px;
 }
 .redflower-background #redflower-minute-2 {
     position: absolute;
-    height: 25%;
-    width: 18.75%;
+    height: 75px;
+    width: 75px;
     z-index: 3;
-    top: 53.3%;
-    left: 35%;
+    top: 160px;
+    left: 140px;
     
 }
 .redflower-background #redflower-minute-3 {
     position: absolute;
-    height: 25%;
-    width: 18.75%;
+    height: 75px;
+    width: 75px;
     z-index: 3;
-    top: 60%;
-    left: 71.25%;
+    top: 180px;
+    left: 285px;
 }
 .redflower-background #redflower-minute-4 {
     position: absolute;
-    height: 25%;
-    width: 18.75%;
+    height: 75px;
+    width: 75px;
     z-index: 3;
-    top: 73.33%;
-    left: 12.5%;
+    top: 220px;
+    left: 50px;
 }
 .redflower-background #redflower-minute-5 {
     position: absolute;
-    height: 25%;
-    width: 18.75%;
+    height: 75px;
+    width: 75px;
     z-index: 3;
-    top: 80%;
-    left: 80%;
+    top: 240px;
+    left: 320px;
 }
 .redflower-background #redflower-bucket {
     position: relative;
@@ -556,11 +576,11 @@
 }
 .redflower-label {
     position: relative;
-    width: 17.85%;
-    height: 11.16%;
-    left: 6.4%;
-    top: -170.8%;
+    left: 90px;
+    top: -1025px;
+    width: 250px;
     word-wrap: break-word;
+    max-height: 67px;
     line-height: 50%;
     z-index: 5;
 }
@@ -568,21 +588,21 @@
     font-family: "Lucida Console", "Courier New", monospace;
     font-weight: bold;
     text-align: center;
-    font-size: 1.2vw;
+    font-size: large;
     line-height: 100%;
     z-index: 5;
 }
 .redflower-label #redflower-artists-names {
     text-align: center;
     font-family: "Lucida Console", "Courier New", monospace;
-    font-size: .86vw;
+    font-size: 80%;
     line-height: 100%;
     z-index: 5;
 }
 .redflower-label #redflower-time {
     text-align: center;
     font-family: "Lucida Console", "Courier New", monospace;
-    font-size: .86vw;
+    font-size: 80%;
     z-index: 5;
 }
 
@@ -593,10 +613,10 @@
 /*purpleflower with variable number of rings*/
 .songflower-purpleflower{
     position: relative;
-    height: 15%;
-    width: 6.42%;
-    top: -148.33%;
-    left: 84.64%;
+    height: 90px;
+    width: 90px;
+    top: -890px;
+    left: 1185px;
 }
 .songflower-purpleflower #purpleflower-petals {
     position: absolute; 
@@ -667,51 +687,51 @@
 /* extra purpleflowers */
 .purpleflower-background {
     position: relative;
-    height: 83.33%;
-    width: 28.57%;
-    left: 71.42%;
-    top: -191%;
+    height: 500px;
+    width: 400px;
+    left: 1000px;
+    top: -1150px;
 }
 .purpleflower-background #purpleflower-minute-1 {
     position: absolute;
-    height: 15%;
-    width: 18.75%;
+    height: 75px;
+    width: 75px;
     z-index: 3;
-    top: 38%;
-    left: 10%;
+    top: 190px;
+    left: 40px;
 }
 .purpleflower-background #purpleflower-minute-2 {
     position: absolute;
-    height: 15%;
-    width: 18.75%;
+    height: 75px;
+    width: 75px;
     z-index: 3;
-    top: 35%;
-    left: 75%;
+    top: 175px;
+    left: 300px;
     
 }
 .purpleflower-background #purpleflower-minute-3 {
     position: absolute;
-    height: 15%;
-    width: 18.75%;
+    height: 75px;
+    width: 75px;
     z-index: 3;
-    top: 16%;
-    left: 37.5%;
+    top: 80px;
+    left: 150px;
 }
 .purpleflower-background #purpleflower-minute-4 {
     position: absolute;
-    height: 15%;
-    width: 18.75%;
+    height: 75px;
+    width: 75px;
     z-index: 3;
-    top: 18%;
-    left: 10%;
+    top: 90px;
+    left: 40px;
 }
 .purpleflower-background #purpleflower-minute-5 {
     position: absolute;
-    height: 15%;
-    width: 18.75%;
+    height: 75px;
+    width: 75px;
     z-index: 3;
-    top: 16%;
-    left: 75%;
+    top: 80px;
+    left: 300px;
 }
 .purpleflower-background #purpleflower-pot {
     position: relative;
@@ -719,35 +739,54 @@
     width: 100%;
     z-index: 2;
 }
-
 .purpleflower-label {
     position: relative;
-    width: 17.85%;
-    height: 11.16%;
-    left: 78.21%;
-    top: -278.3%;
+    left: 1095px;
+    top: -1670px;
+    width: 250px;
     word-wrap: break-word;
+    max-height: 67px;
     line-height: 50%;
     z-index: 5;
+    color: black;
 }
 .purpleflower-label #purpleflower-song-name {
     font-family: "Lucida Console", "Courier New", monospace;
     font-weight: bold;
     text-align: center;
     line-height: 100%;
-    font-size: 1.2vw;
+    font-size: large;
     z-index: 5;
 }
 .purpleflower-label #purpleflower-artists-names {
     text-align: center;
     font-family: "Lucida Console", "Courier New", monospace;
-    font-size: .86vw;
+    font-size: 80%;
     line-height: 100%;
     z-index: 5;
 }
 .purpleflower-label #purpleflower-time {
     text-align: center;
     font-family: "Lucida Console", "Courier New", monospace;
-    font-size: .86vw;
+    font-size: 80%;
     z-index: 5;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

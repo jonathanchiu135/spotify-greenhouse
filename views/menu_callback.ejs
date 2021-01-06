@@ -1,8 +1,8 @@
 <html lang="en">
 <%- include('./partials/header.ejs')%>
-<body>
-    <div class="title"> 
-        <h1 class="website-title"> Spotify Greenhouse </h1>
+<body onload="change_height()" onresize="change_height()">  
+    <div class="flower-title"> 
+        <h1 class="flower-website-title"> Spotify Greenhouse </h1>
     </div>
     <div class="menu-content">
         <p id="intro-label">
@@ -29,7 +29,7 @@
                 </p>
             </div>
             <div id="long-term">
-                <a href="/greenhouse-alltime"  id="long-term">
+                <a href="/greenhouse-alltime"  id="long-term-link">
                     <img id="bag-closed-long" src="bag-closed.png">
                     <img id="bag-open-long" src="bag-open.png">
                 </a>
@@ -37,16 +37,27 @@
                     ALL TIME 
                 </p>
             </div>
+            <div id="hint">
+                <p>Count the petals on the flowers for the length of the songs!</p>
+                <img id="string-of-flowers" src="string-of-flowers.png">
+            </div>
         </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         
-        <div id="hint">
-            <p>Count the petals on the flowers!</p>
-            <img id="string-of-flowers" src="string-of-flowers.png">
-        </div>
-
+        <script>
+            function change_height() {
+                var c1 = $('.menu-content').width();
+                $('.menu-content').css({
+                    'height': c1*.42 + 'px'
+                });
+    
+                var c2 = $('.flower-title').width();
+                $('.flower-title').css({
+                    'height': c2*.045 + 'px'
+                });
+            }
+        </script>
     </div>
-
-    <br><br>
 
     <script>
         //since it's the first time visiting HTML page after API call, store in session storage

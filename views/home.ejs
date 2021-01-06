@@ -1,6 +1,6 @@
 <html lang="en">
 <%- include('./partials/header.ejs')%>
-<body>  
+<body onload="change_height()" onresize="change_height()">  
     <div class="content">
         <div class="title-page-title"> 
             <h1 class="title-text"> S p o t i f y &nbsp; G r e e n h o u s e </h1>
@@ -17,6 +17,15 @@
             <p>Inspired by <a href="https://receiptify.herokuapp.com/">Receiptify</a></p>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>    
+    <script>
+        function change_height() {
+            var c1 = $('.content').width();
+            $('.content').css({
+                'height': c1*.47 + 'px'
+            });
+        }
+    </script>
     <script>
         var randomNum = Math.floor(Math.random() * 3);
         switch (randomNum) {

@@ -1,16 +1,9 @@
 <html lang="en">
 <%- include('./partials/header.ejs')%>
-<body>  
+<body onload="change_height()" onresize="change_height()">  
     <div class="flower-title"> 
-        <h1 class="website-title"> Spotify Greenhouse </h1>
+        <h1 class="flower-website-title"> Spotify Greenhouse </h1>
     </div>
-    <div id="menu-button-wrapper">
-        <a href="/menu" id="menu-link">
-            <img id="menu-button" src="menu-button.png">
-            <img id="menu-button-hover" src="menu-button-hover.png">
-        </a>
-    </div>
-
     <div class="greenhouse">
         <div class="songflower-sunflower"> 
             <img id="sunflower-petals">
@@ -87,6 +80,29 @@
 
         <img id="entire-greenhouse-background" src="entire-greenhouse-background.png">
 
+        <div id="menu-button-wrapper">
+            <a href="/menu" id="menu-link">
+                <img id="menu-button" src="menu-button.png">
+                <img id="menu-button-hover" src="menu-button-hover.png">
+            </a>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        
+        <script>
+            function change_height() {
+                var c1 = $('.greenhouse').width();
+                $('.greenhouse').css({
+                    'height': c1*.42 + 'px'
+                });
+
+                var c2 = $('.flower-title').width();
+                $('.flower-title').css({
+                    'height': c2*.045 + 'px'
+                });
+            }
+        </script>
+        
         <script>
 
             var bodyObject = JSON.parse(sessionStorage.bodyStorage2);
