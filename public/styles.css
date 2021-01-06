@@ -213,11 +213,11 @@
     height: 100%;
     z-index: 0;
 }
-
 @media only screen and (max-width: 480px) {
+    
     #entire-greenhouse-background {
         position: relative;
-        top: 10000%;
+        bottom: 300%;
         left: 0%;
         width: 100%;
         height: 100%;
